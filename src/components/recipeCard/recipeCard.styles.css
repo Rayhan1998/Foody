@@ -1,0 +1,41 @@
+.card {
+  margin: 10px;
+  height: 120px;
+  width: 400px;
+  background-color: white;
+}
+
+.card-inner {
+  display: flex;
+}
+
+.card-img-container img {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translate(8px, 20%);
+}
+
+.card-right {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  color: #f48982;
+}
+
+.card-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  border-radius: 10rem;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
+}
