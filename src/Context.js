@@ -12,7 +12,9 @@ function ContextProvider(props) {
         searchQuery,
         setSearchQuery,
         searchResults,
-        setSearchResults
+        setSearchResults,
+        setSelectedRecipeId,
+        selectedRecipeId
       }}
     >
       {props.children}

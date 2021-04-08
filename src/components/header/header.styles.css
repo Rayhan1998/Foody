@@ -63,4 +63,8 @@
   align-items: center;
   transition: all 0.5s;
 }
+
+.form-btn:focus {
+  outline: 0;
+}
 /* end of form */

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./recipeCard.styles.css";
+import { Context } from "../../Context";
 
-export default function recipeCard({ title, image, recipe }) {
+export default function RecipeCard({ title, image, recipe }) {
+  const { setSelectedRecipeId } = useContext(Context);
+
+  function selectedRecipe(id) {
+    setSelectedRecipeId(id);
+  }
+
   return (
     <div className="card">
       <div className="card-inner">
@@ -12,7 +19,13 @@ export default function recipeCard({ title, image, recipe }) {
         </div>
         <div className="card-right">
           <h1 className="card-title">{title}</h1>
-          <button className="card-btn">View Recipe</button>
+
+          <button
+            className="card-btn"
+            onClick={() => selectedRecipe(recipe.id)}
+          >
+            View Recipe
+          </button>
         </div>
       </div>
     </div>

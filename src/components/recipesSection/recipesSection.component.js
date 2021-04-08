@@ -5,7 +5,7 @@ import { Context } from "../../Context";
 
 function RecipesSection() {
   const { searchResults } = useContext(Context);
-  console.log(searchResults);
+
   return (
     <div className="recipes-section">
       {searchResults.map(recipe => {

@@ -39,3 +39,7 @@
   align-items: center;
   transition: all 0.5s;
 }
+
+.card-btn:focus {
+  outline: none;
+}
