@@ -6,7 +6,14 @@ import "./recipeModal.styles.css";
 import { Context } from "../../Context";
 
 function RecipeModal() {
-  const { selectedRecipeId, setSelectedRecipeId } = useContext(Context);
+  const {
+    selectedRecipeId,
+    setSelectedRecipeId,
+    recipeList,
+    setRecipeList,
+    localStorageRecipeList,
+    recipesSaved
+  } = useContext(Context);
   const [recipeDetails, setRecipeDetails] = useState([]);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
 
@@ -28,6 +35,39 @@ function RecipeModal() {
         });
     }
   }, [selectedRecipeId]);
+
+  function listHandler(id) {
+    const recipe = {
+      id: id,
+      title: recipeDetails.title
+    };
+
+    if (recipeList.some(rec => rec.id == id)) {
+      removeRecipe(id);
+    } else {
+      addRecipe(recipe);
+    }
+  }
+
+  function addRecipe(recipe) {
+    setRecipeList(oldArray => [...oldArray, recipe]);
+  }
+
+  function removeRecipe(id) {
+    let updatedArrayy = [];
+
+    updatedArrayy = recipeList.filter(recipe => {
+      return recipe.id !== id;
+    });
+
+    setRecipeList(updatedArrayy);
+  }
+
+  useEffect(() => {
+    if (recipesSaved) localStorageRecipeList(recipeList);
+  }, [recipeList]);
+
+  console.log(recipeList);
 
   return (
     <div>
@@ -57,7 +97,11 @@ function RecipeModal() {
             </div>
           </div>
 
-          <button>Add to list</button>
+          <button onClick={() => listHandler(recipeDetails.id)}>
+            {recipeList.some(recipe => recipe.id == recipeDetails.id)
+              ? "remove recipe"
+              : "add recipe"}
+          </button>
         </div>
       )}
     </div>
