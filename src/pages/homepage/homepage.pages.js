@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./homepage.styles.css";
 import RecipesSection from "../../components/recipesSection/recipesSection.component";
 import RecipeModal from "../../components/recipeModal/recipeModal.component";
+import SavedRecipes from "../../components/savedRecipes/savedRecipes.components";
 import { Context } from "../../Context";
 
 export default function Homepage() {
@@ -14,6 +15,7 @@ export default function Homepage() {
       </h2>
       <RecipesSection />
       <RecipeModal />
+      <SavedRecipes />
     </div>
   );
 }

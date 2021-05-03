@@ -12,11 +12,15 @@ function ContextProvider(props) {
     localStorage.setItem("recipes", JSON.stringify(recipeList));
   }
 
+  function updateRecipesFromStorage() {
+    setRecipeList(JSON.parse(localStorage.getItem("recipes")));
+  }
+
   useEffect(() => {
     if (localStorage.getItem("recipes") === null) {
       localStorageRecipeList(recipeList);
     } else {
-      setRecipeList(JSON.parse(localStorage.getItem("recipes")));
+      updateRecipesFromStorage();
       setRecipesSaved(true);
     }
   }, []);
